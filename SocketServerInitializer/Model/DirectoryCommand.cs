@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace SocketServerInitializer.Model
 {
-    internal class DirectoryCommand
+    public enum CRUDType
     {
+        Create,
+        Delete
+    }
+    public class DirectoryCommand : NotCmdCommand
+    {
+        public CRUDType commandType { get; set; }
     }
 }

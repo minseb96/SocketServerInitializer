@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SocketServerInitializer.Model
 {
-    public interface ICommand
+    public class Command
     {
-        int Order { get; set; }
+        public int Order { get; set; }
     }
 }

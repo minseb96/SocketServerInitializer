@@ -9,15 +9,12 @@ namespace SocketServerInitializer.Controller
 {
     public abstract class Controller
     {
-        public IEnumerable<ICommand> OrderByCommandOrder(ICommand[] commands)
+        public bool IsSupport(Command command)
         {
-            IEnumerable<ICommand> orderedCommand = commands.OrderBy(command => command.Order);
-            return orderedCommand;
+            return this.SupportTypes.Contains(command.GetType()) ? true : false;
+            //return commands[0].GetType() ? true : false;
         }
-        public bool IsSupport<T>(ICommand[] commands)
-        {
-            return commands[0].GetType() == typeof(T) ? true : false;
-        }
-        public abstract bool Execute();
+        public abstract bool Execute(Command command);
+        public List<Type> SupportTypes { get; set; }
     }
 }

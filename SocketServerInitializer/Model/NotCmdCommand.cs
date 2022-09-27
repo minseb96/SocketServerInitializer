@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SocketServerInitializer.Model
 {
-    interface INotCmdCommand : ICommand
+    public class NotCmdCommand : Command
     {
-        string Destination { get; set; }
+        public string Destination { get; set; }
     }
 }

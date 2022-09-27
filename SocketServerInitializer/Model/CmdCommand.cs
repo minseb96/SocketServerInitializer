@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SocketServerInitializer.Model
 {
-    interface ICmdCommand : ICommand
+    public class CmdCommand : Command
     {
-        string Verb { get; set; }
-        string Destination { get; set; }
+        public string Verb { get; set; }
+        public string Destination { get; set; }
     }
 }

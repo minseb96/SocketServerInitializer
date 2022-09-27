@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace SocketServerInitializer.Model
 {
-    public class ChangeDirecotryCommand : ICmdCommand
+    public class ChangeDirectoryCommand : CmdCommand
     {
-        public int Order { get; set; }
-        public string Verb { get => "cd"; set { } }
-        public string Destination { get; set; }
+        public ChangeDirectoryCommand()
+        {
+            this.Verb = "cd";
+        }
     }
 }

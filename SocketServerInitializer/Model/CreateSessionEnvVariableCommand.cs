@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace SocketServerInitializer.Model
 {
-    class CreateSessionEnvVariableCommand : ICmdCommand
+    class CreateSessionEnvVariableCommand : CmdCommand
     {
-        public string Verb { get => "SET"; set { } }
         public string PathName { get; set; }
-        public string Destination { get; set; }
-        public int Order { get; set; }
+        public CreateSessionEnvVariableCommand()
+        {
+            this.Verb = "SET";
+        }
     }
 }
