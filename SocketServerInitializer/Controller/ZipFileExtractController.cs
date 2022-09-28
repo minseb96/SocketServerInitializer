@@ -17,7 +17,7 @@ namespace SocketServerInitializer.Controller
         public ZipFileExtractController()
         {
             zipper = new FastZip();
-            this.SupportTypes = new Type[] { typeof(ZipFileCommand) };
+            this.SupportTypes = new List<Type> { typeof(ZipFileCommand) };
         }
 
         private bool DeleteAndExtract(string path, string exceptionProcessName="", bool reCreate = true)

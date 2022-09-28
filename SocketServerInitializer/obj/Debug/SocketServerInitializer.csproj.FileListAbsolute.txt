@@ -1,0 +1,16 @@
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.csproj.AssemblyReference.cache
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.csproj.SuggestedBindingRedirects.cache
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.exe.config
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.csproj.CoreCompileInputs.cache
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\SocketServerInitializer.exe.config
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\SocketServerInitializer.exe
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\SocketServerInitializer.pdb
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\JsonKnownTypes.dll
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\Newtonsoft.Json.dll
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\ICSharpCode.SharpZipLib.pdb
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\ICSharpCode.SharpZipLib.xml
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\Newtonsoft.Json.xml
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.csproj.CopyComplete
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.exe
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.pdb

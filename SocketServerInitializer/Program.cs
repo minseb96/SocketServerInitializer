@@ -22,11 +22,12 @@ namespace SocketServerInitializer
             {
                 string jsonObj = reader.ReadToEnd();
                 var commandList = JsonConvert.DeserializeObject<List<Command>>(jsonObj, new JsonKnownTypesConverter<Command>());
+
                 dispatcherController = new DispatcherController(commandList);
             }
-            for(int i=0; i<dispatcherController.CommandListCount; i++)
+            for (int i = 0; i < dispatcherController.CommandListCount; i++)
             {
-                if(dispatcherController.EndOfCommand || !dispatcherController.ExecuteNext())
+                if (dispatcherController.EndOfCommand || !dispatcherController.ExecuteNext())
                 {
                     break;
                 }
@@ -34,5 +35,6 @@ namespace SocketServerInitializer
 
             Console.ReadKey();
         }
+
     }
 }

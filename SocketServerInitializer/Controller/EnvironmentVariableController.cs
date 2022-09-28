@@ -14,15 +14,11 @@ namespace SocketServerInitializer.Controller
             this.SupportTypes = new List<Type> { typeof(CreateEnvVariableCommand), typeof(CreateSessionEnvVariableCommand) };
         }
 
-        private Type FindCommandType(Type type)
-        {
-            return this.SupportTypes.Find(x=> x.Equals(type));
-        }
-
         public override bool Execute(Command commandParam)
         {
-            var type = FindCommandType(commandParam.GetType());
-            var command = (type.GetType())commandParam;
+            return true;
+            //var type = commandParam.GetType();
+            //CastObject<commandParam.GetType()>(commandParam);
         }
     }
 }

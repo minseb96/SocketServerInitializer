@@ -20,6 +20,7 @@ namespace SocketServerInitializer.Controller
         private DirectoryController pathController;
         private EnvironmentVariableController environmentVariableController;
         private ZipFileExtractController zipFileExtractController;
+
         public DispatcherController(List<Command> commandList)
         {
             CommandList = OrderByCommandOrder(commandList);
