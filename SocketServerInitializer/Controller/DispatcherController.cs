@@ -62,6 +62,10 @@ namespace SocketServerInitializer.Controller
             {
                 throw new Exception("Not found controller.");
             }
+            if(command is CmdCommand)
+            {
+                return controller.ExecuteCmdCommand(command);
+            }
             return controller.Execute(command);
         }
 

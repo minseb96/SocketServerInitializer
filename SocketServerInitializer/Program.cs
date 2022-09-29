@@ -25,7 +25,7 @@ namespace SocketServerInitializer
 
                 dispatcherController = new DispatcherController(commandList);
             }
-            for (int i = 0; i < dispatcherController.CommandListCount; i++)
+            while (dispatcherController.CommandListCount > 0)
             {
                 if (dispatcherController.EndOfCommand || !dispatcherController.ExecuteNext())
                 {
