@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SocketServerInitializer.Controller
 {
@@ -12,39 +13,44 @@ namespace SocketServerInitializer.Controller
     {
         public bool EndOfCommand { get => endOfCommand; }
         public int CommandListCount { get => CommandList.Count; }
+        public string StrCmdCommands { get => CmdCommands.ToString(); }
 
         private bool endOfCommand = false;
-        private List<Command> CommandList = new List<Command>();
-        private List<Controller> ControllerStore  = new List<Controller>();
+        private List<CommandBase> CommandList = new List<CommandBase>();
+        private List<ControllerBase> ControllerStore  = new List<ControllerBase>();
+        private StringBuilder CmdCommands = new StringBuilder();
 
-        private DirectoryController pathController;
-        private EnvironmentVariableController environmentVariableController;
-        private ZipFileExtractController zipFileExtractController;
+        private DirectoryController directoryController;
+        private MachineEnvironmentVariableController environmentVariableController;
+        private ZipFileController zipFileExtractController;
+        private CommonCommandController universalCmdController;
 
-        public DispatcherController(List<Command> commandList)
+        public DispatcherController(List<CommandBase> commandList)
         {
             CommandList = OrderByCommandOrder(commandList);
             Init();
 
             MapController();
         }
-        private List<Command> OrderByCommandOrder(List<Command> commands)
+        private List<CommandBase> OrderByCommandOrder(List<CommandBase> commands)
         {
             return commands.OrderBy(command => command.Order).ToList();
         }
         private void Init()
         {
-            pathController = new DirectoryController();
-            environmentVariableController = new EnvironmentVariableController();
-            zipFileExtractController = new ZipFileExtractController();
+            directoryController = new DirectoryController();
+            environmentVariableController = new MachineEnvironmentVariableController();
+            zipFileExtractController = new ZipFileController();
+            universalCmdController = new CommonCommandController();
         }
         private void MapController()
         {
-            this.ControllerStore.Add(pathController);
+            this.ControllerStore.Add(directoryController);
             this.ControllerStore.Add(environmentVariableController);
             this.ControllerStore.Add(zipFileExtractController);
+            this.ControllerStore.Add(universalCmdController);
         }
-        private Controller GetSupportedController(Command command)
+        private ControllerBase GetSupportedController(CommandBase command)
         {
             foreach (var controller in this.ControllerStore)
             {
@@ -55,29 +61,49 @@ namespace SocketServerInitializer.Controller
             }
             return null;
         }
-        private bool Execute(Command command)
+        private bool Execute(CommandBase command)
         {
-            Controller controller = GetSupportedController(command);
+            if (command.IsSkip)
+            {
+                return true;
+            }
+            ControllerBase controller = GetSupportedController(command);
             if (controller == null)
             {
-                throw new Exception("Not found controller.");
+                throw new Exception("Controller not found.");
             }
-            if(command is CmdCommand)
+            if (command is CmdCommand)
             {
-                return controller.ExecuteCmdCommand(command);
+                ConcatCommand(((CmdController)controller).GetFullCommand(command));
+                return true;
             }
-            return controller.Execute(command);
+            else
+            {
+                return ((GeneralController)controller).Execute(command);
+            }
+        }
+
+        private void ConcatCommand(string strCommand)
+        {
+            if(this.CommandList.Count == 1)
+            {
+                this.CmdCommands.Append($"{strCommand} /c");
+            }
+            else
+            {
+                this.CmdCommands.Append($"{strCommand} && ");
+            }
         }
 
         public bool ExecuteNext()
         {
-            if (CommandList.Count == 1)
+            bool result = Execute(CommandList[0]);
+            CommandList.RemoveAt(0);
+
+            if (CommandList.Count <= 0)
             {
                 endOfCommand = true;
             }
-
-            bool result = Execute(CommandList[0]);
-            CommandList.RemoveAt(0);
             return result;
         }
     }

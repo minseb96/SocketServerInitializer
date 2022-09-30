@@ -1,6 +1,5 @@
 D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.csproj.AssemblyReference.cache
 D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.csproj.SuggestedBindingRedirects.cache
-D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.exe.config
 D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.csproj.CoreCompileInputs.cache
 D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\SocketServerInitializer.exe.config
 D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\SocketServerInitializer.exe
@@ -14,3 +13,5 @@ D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInit
 D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.csproj.CopyComplete
 D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.exe
 D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\obj\Debug\SocketServerInitializer.pdb
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\nunit.framework.dll
+D:\dev\Projects\fixel-golf\CSharp\Fixel\SocketServerInitializer\SocketServerInitializer\bin\Debug\nunit.framework.xml

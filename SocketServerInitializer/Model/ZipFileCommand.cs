@@ -20,7 +20,8 @@ namespace SocketServerInitializer.Model
     public class ZipFileCommand : NotCmdCommand
     {
         public ZipCommand ZipCommandType { get; set; }
-        public string ExceptionProcessName { get; set; }
-        public bool RecreateAfterDelete { get; set; }
+        public string ExtractionPath { get; set; }
+        public bool UseRelativeDestination { get; set; }
+        public bool UseRelativeExtractionPath { get; set; }
     }
 }

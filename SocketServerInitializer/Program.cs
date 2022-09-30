@@ -21,18 +21,33 @@ namespace SocketServerInitializer
             using(StreamReader reader = new StreamReader(path))
             {
                 string jsonObj = reader.ReadToEnd();
-                var commandList = JsonConvert.DeserializeObject<List<Command>>(jsonObj, new JsonKnownTypesConverter<Command>());
+                var commandList = JsonConvert.DeserializeObject<List<CommandBase>>(jsonObj, new JsonKnownTypesConverter<CommandBase>());
 
                 dispatcherController = new DispatcherController(commandList);
             }
             while (dispatcherController.CommandListCount > 0)
             {
-                if (dispatcherController.EndOfCommand || !dispatcherController.ExecuteNext())
+                bool result = dispatcherController.ExecuteNext();
+                if (!result)
                 {
+                    throw new Exception("General commands execute failed");
+                }
+                if (dispatcherController.EndOfCommand)
+                {
+                    try
+                    {
+                        ProcessController processController = new ProcessController();
+                        processController.SendCommands(dispatcherController.StrCmdCommands, (int)(TimeSpan.FromMinutes((double)Properties.Settings.Default.MaxTimeWait).TotalMilliseconds));
+                    }
+                    catch
+                    {
+                        throw new Exception("Cmd commands execute failed.");
+                    }
                     break;
                 }
             }
 
+            Console.WriteLine("[End] Installation finished !!! ");
             Console.ReadKey();
         }
 

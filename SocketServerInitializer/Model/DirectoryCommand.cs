@@ -18,6 +18,8 @@ namespace SocketServerInitializer.Model
     [JsonKnownType(typeof(DirectoryCommand), "DirectoryCommand")]
     public class DirectoryCommand : NotCmdCommand
     {
-        public CRUDType commandType { get; set; }
+        public CRUDType CommandType { get; set; }
+        public string ExceptionProcessName { get; set; }
+        public bool UseRelativeDestination { get; set; }
     }
 }
