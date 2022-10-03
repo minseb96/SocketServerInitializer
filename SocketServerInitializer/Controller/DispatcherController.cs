@@ -24,6 +24,7 @@ namespace SocketServerInitializer.Controller
         private MachineEnvironmentVariableController environmentVariableController;
         private ZipFileController zipFileExtractController;
         private CommonCommandController universalCmdController;
+        private SessionEnvironmentVariableController sessionEnvironmentVariableController;
 
         public DispatcherController(List<CommandBase> commandList)
         {
@@ -40,6 +41,7 @@ namespace SocketServerInitializer.Controller
         {
             directoryController = new DirectoryController();
             environmentVariableController = new MachineEnvironmentVariableController();
+            sessionEnvironmentVariableController = new SessionEnvironmentVariableController();
             zipFileExtractController = new ZipFileController();
             universalCmdController = new CommonCommandController();
         }
@@ -47,6 +49,7 @@ namespace SocketServerInitializer.Controller
         {
             this.ControllerStore.Add(directoryController);
             this.ControllerStore.Add(environmentVariableController);
+            this.ControllerStore.Add(sessionEnvironmentVariableController);
             this.ControllerStore.Add(zipFileExtractController);
             this.ControllerStore.Add(universalCmdController);
         }
@@ -87,11 +90,11 @@ namespace SocketServerInitializer.Controller
         {
             if(this.CommandList.Count == 1)
             {
-                this.CmdCommands.Append($"{strCommand} /c");
+                this.CmdCommands.Append($"{strCommand}");
             }
             else
             {
-                this.CmdCommands.Append($"{strCommand} && ");
+                this.CmdCommands.Append($"{strCommand} & ");
             }
         }
 

@@ -42,7 +42,7 @@ namespace SocketServerInitializer.Controller
             {
                 Directory.Delete(path, true);
             }
-            catch
+            catch(Exception e)
             {
                 if (!string.IsNullOrEmpty(exceptionProcessName))
                 {
@@ -56,7 +56,7 @@ namespace SocketServerInitializer.Controller
                 }
                 catch
                 {
-                    return false;
+                    return true;
                 }
             }
             return true;

@@ -12,5 +12,7 @@ namespace SocketServerInitializer.Model
     {
         public string PostVerb { get; set; } // install, run ... 
         public string CommandOption { get; set; } // --all, -g, --dev ...
+        public bool UseRelativeScriptPath { get; set; }
+        public bool UseForBatchScript { get; set; }
     }
 }

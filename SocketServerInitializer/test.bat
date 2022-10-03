@@ -1,0 +1,1 @@
+((ping -n 2 127.0.0.1 1>nul && echo yes && ping -n 2 127.0.0.1 1>nul && echo n && ping -n 2 127.0.0.1 1>nul && echo yes && ping -n 2 127.0.0.1 1>nul && echo yes && ping -n 2 127.0.0.1 1>nul && echo yes && ping -n 2 127.0.0.1 1>nul && echo yes) | pm2-service-install -n FixelSerialPortCommSocketServer)

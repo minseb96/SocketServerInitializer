@@ -21,6 +21,9 @@ namespace SocketServerInitializer.Controller
 
         private void Init()
         {
+            OutputLogBuffer = new StringBuilder();
+            ErrorLogBuffer = new StringBuilder();
+
             process = new Process();
             process.StartInfo = new ProcessStartInfo()
             {
@@ -75,7 +78,7 @@ namespace SocketServerInitializer.Controller
             Thread.Sleep(2000);
 
             process.StandardInput.WriteLine(commands);
-            if(maxTimeWait > 0)
+            if (maxTimeWait > 0)
             {
                 process.WaitForExit(maxTimeWait);
                 return;

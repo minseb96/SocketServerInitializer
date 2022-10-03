@@ -5,5 +5,8 @@
     <Setting Name="MaxTimeWait" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
+    <Setting Name="ProcessorArchitecture" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">64</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

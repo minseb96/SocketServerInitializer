@@ -20,11 +20,11 @@ namespace SocketServerInitializer.Controller
             CreateSessionEnvVariableCommand command = (CreateSessionEnvVariableCommand)commandParam;
             if (command.PathName.Equals("PATH"))
             {
-                return $"SET {command.PathName}=%PATH%;{command.Destination};";
+                return $"{command.Verb} {command.PathName}=%PATH%;{command.Destination};";
             }
             else
             {
-                return $"SET {command.PathName}={command.Destination}";
+                return $"{command.Verb} {command.PathName}={command.Destination}";
             }
         }
     }

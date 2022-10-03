@@ -17,7 +17,15 @@ namespace SocketServerInitializer
         static void Main(string[] args)
         {
             DispatcherController dispatcherController;
-            string path = @"C:\Users\Minseob Song\Desktop\testObj.json";
+            string path = string.Empty;
+            if(Properties.Settings.Default.ProcessorArchitecture == 64)
+            {
+                path = PathUtils.GetCurrentProjectPath(@"testObj64.json");
+            }
+            else
+            {
+                path = PathUtils.GetCurrentProjectPath(@"testObj32.json");
+            }
             using(StreamReader reader = new StreamReader(path))
             {
                 string jsonObj = reader.ReadToEnd();

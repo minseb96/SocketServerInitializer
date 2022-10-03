@@ -1,0 +1,21 @@
+[
+	{
+		"$type": "CreateSessionEnvVariableCommand",
+		"Order": 20,
+		"Verb": "SET",
+		"PathName": "TEST",
+		"Destination": "\"TEST_PATH\"",
+		"IsSkip": false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 36,
+		"Verb": "SET",
+		"PostVerb": "TEST",
+		"Destination": null,
+		"CommandOption": null,
+		"UseRelativeScriptPath" : false,
+		"UseForBatchScript" : false,
+		"IsSkip": false
+	}
+]

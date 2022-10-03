@@ -1,4 +1,5 @@
 ﻿using SocketServerInitializer.Model;
+using SocketServerInitializer.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,14 @@ namespace SocketServerInitializer.Controller
         public override string GetFullCommand(CommandBase commandParam)
         {
             var command = (CommonCommand)commandParam;
+            if(command.UseForBatchScript)
+            {
+                if(command.UseRelativeScriptPath)
+                {
+                    return $"{PathUtils.GetCurrentProjectPath(command.Verb)}.bat";
+                }
+                return $"{command.Verb}.bat";
+            }
             var blank = " ";
             return $"{command.Verb} {command.PostVerb}" +
                 $"{(String.IsNullOrEmpty(command.Destination) ? String.Empty : blank + command.Destination)}" +
