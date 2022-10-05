@@ -24,7 +24,7 @@ namespace SocketServerInitializer.Controller
         {
             if (useRelativeZipFilePath)
             {
-                zipFilePath = PathUtils.GetCurrentProjectPath(zipFilePath);
+                zipFilePath = PathUtils.GetCurrentProjectPath("Resources\\" + zipFilePath);
             }
             if (useRelativeExtractionPath)
             {

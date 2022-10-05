@@ -33,7 +33,8 @@ namespace SocketServerInitializer.Controller
                 CreateNoWindow = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
-                RedirectStandardInput = true,
+                //RedirectStandardInput = true,
+                RedirectStandardInput = false,
                 StandardErrorEncoding = Encoding.UTF8,
                 StandardOutputEncoding = Encoding.UTF8,
             };
@@ -59,8 +60,9 @@ namespace SocketServerInitializer.Controller
             }
         }
 
-        private void Start()
+        private void Start(string commands)
         {
+            process.StartInfo.Arguments = $"/c {commands}";
             if (process.Start())
             {
                 process.BeginErrorReadLine();
@@ -74,10 +76,10 @@ namespace SocketServerInitializer.Controller
 
         public void SendCommands(string commands, int maxTimeWait=0)
         {
-            Start();
+            Start(commands);
             Thread.Sleep(2000);
 
-            process.StandardInput.WriteLine(commands);
+            //process.StandardInput.WriteLine(commands);
             if (maxTimeWait > 0)
             {
                 process.WaitForExit(maxTimeWait);

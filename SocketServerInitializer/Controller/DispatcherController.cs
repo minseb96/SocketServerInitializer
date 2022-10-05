@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Threading;
 
 namespace SocketServerInitializer.Controller
 {
@@ -102,6 +103,7 @@ namespace SocketServerInitializer.Controller
         {
             bool result = Execute(CommandList[0]);
             CommandList.RemoveAt(0);
+            Thread.Sleep(100);
 
             if (CommandList.Count <= 0)
             {

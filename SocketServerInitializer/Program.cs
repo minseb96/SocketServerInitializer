@@ -31,7 +31,7 @@ namespace SocketServerInitializer
                 string jsonObj = reader.ReadToEnd();
                 var commandList = JsonConvert.DeserializeObject<List<CommandBase>>(jsonObj, new JsonKnownTypesConverter<CommandBase>());
 
-                dispatcherController = new DispatcherController(commandList);
+               dispatcherController = new DispatcherController(commandList);
             }
             while (dispatcherController.CommandListCount > 0)
             {
