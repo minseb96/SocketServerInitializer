@@ -24,7 +24,7 @@ namespace SocketServerInitializer.Controller
             }
             else
             {
-                return $"{command.Verb} {command.PathName}={command.Destination}";
+                return $"{command.Verb} {command.PathName}={command.Destination};";
             }
         }
     }

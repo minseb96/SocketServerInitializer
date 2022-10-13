@@ -14,12 +14,12 @@ namespace SocketServerInitializer.Controller
         public StringBuilder OutputLogBuffer { get; set; }
         public StringBuilder ErrorLogBuffer { get; set; }
 
-        public ProcessController()
+        public ProcessController(Dictionary<string, string> processInfo)
         {
-            Init();
+            Init(processInfo);
         }
 
-        private void Init()
+        private void Init(Dictionary<string, string> processInfo = null)
         {
             OutputLogBuffer = new StringBuilder();
             ErrorLogBuffer = new StringBuilder();
@@ -35,16 +35,32 @@ namespace SocketServerInitializer.Controller
                 RedirectStandardError = true,
                 //RedirectStandardInput = true,
                 RedirectStandardInput = false,
-                StandardErrorEncoding = Encoding.UTF8,
-                StandardOutputEncoding = Encoding.UTF8,
+                //StandardErrorEncoding = Encoding.UTF8,
+                //StandardOutputEncoding = Encoding.UTF8,
             };
+            if(processInfo != null)
+            {
+                foreach(var info in processInfo)
+                {
+                    string value = string.Empty;
+                    if(info.Key.ToLower() == "path")
+                    {
+                        value = $"%PATH%;{info.Value};";
+                    }
+                    else
+                    {
+                        value = info.Value + ';';
+                    }
+                    process.StartInfo.EnvironmentVariables[info.Key] = value;
+                }
+            }
             process.OutputDataReceived += Process_OutputDataReceived;
             process.ErrorDataReceived += Process_ErrorDataReceived;
         }
 
         private void Process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
-            if (e.Data != null && e.Data != string.Empty)
+            if (!string.IsNullOrEmpty(e.Data))
             {
                 Console.WriteLine($"[Warn] {e.Data}");
                 ErrorLogBuffer.Append(e.Data);
@@ -53,7 +69,7 @@ namespace SocketServerInitializer.Controller
 
         private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-            if (e.Data != null && e.Data != string.Empty)
+            if (!string.IsNullOrEmpty(e.Data))
             {
                 Console.WriteLine($"[Output] {e.Data}");
                 OutputLogBuffer.Append(e.Data);
@@ -65,8 +81,8 @@ namespace SocketServerInitializer.Controller
             process.StartInfo.Arguments = $"/c {commands}";
             if (process.Start())
             {
-                process.BeginErrorReadLine();
                 process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
             }
             else
             {
@@ -77,7 +93,7 @@ namespace SocketServerInitializer.Controller
         public void SendCommands(string commands, int maxTimeWait=0)
         {
             Start(commands);
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
 
             //process.StandardInput.WriteLine(commands);
             if (maxTimeWait > 0)

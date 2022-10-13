@@ -15,6 +15,7 @@ namespace SocketServerInitializer.Controller
         public bool EndOfCommand { get => endOfCommand; }
         public int CommandListCount { get => CommandList.Count; }
         public string StrCmdCommands { get => CmdCommands.ToString(); }
+        public Dictionary<string, string> ProcessInfo = new Dictionary<string, string>();
 
         private bool endOfCommand = false;
         private List<CommandBase> CommandList = new List<CommandBase>();
@@ -78,6 +79,13 @@ namespace SocketServerInitializer.Controller
             }
             if (command is CmdCommand)
             {
+                if(command is CreateSessionEnvVariableCommand)
+                {
+                    string pathKey = ((CreateSessionEnvVariableCommand)command).PathName;
+                    string pathValue = ((CreateSessionEnvVariableCommand)command).Destination;
+                    this.ProcessInfo[pathKey] = pathValue;
+                    return true;
+                }
                 ConcatCommand(((CmdController)controller).GetFullCommand(command));
                 return true;
             }
@@ -87,9 +95,9 @@ namespace SocketServerInitializer.Controller
             }
         }
 
-        private void ConcatCommand(string strCommand)
+        private void ConcatCommand(string strCommand, int timeWaitSec=1)
         {
-            if(this.CommandList.Count == 1)
+            if (this.CommandList.Count == 1)
             {
                 this.CmdCommands.Append($"{strCommand}");
             }

@@ -44,7 +44,7 @@ namespace SocketServerInitializer
                 {
                     try
                     {
-                        ProcessController processController = new ProcessController();
+                        ProcessController processController = new ProcessController(dispatcherController.ProcessInfo);
                         processController.SendCommands(dispatcherController.StrCmdCommands, (int)(TimeSpan.FromMinutes((double)Properties.Settings.Default.MaxTimeWait).TotalMilliseconds));
                     }
                     catch
