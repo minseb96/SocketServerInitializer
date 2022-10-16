@@ -22,9 +22,9 @@ namespace SocketServerInitializer.Controller
             {
                 if(command.UseRelativeScriptPath)
                 {
-                    return $"{PathUtils.GetCurrentProjectPath(command.Verb)}.bat";
+                    return $"\"{PathUtils.GetCurrentProjectPath(command.Verb)}.bat\"";
                 }
-                return $"{command.Verb}.bat";
+                return $"\"{command.Verb}.bat\"";
             }
             var blank = " ";
             return $"{command.Verb} {command.PostVerb}" +

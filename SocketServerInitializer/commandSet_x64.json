@@ -309,13 +309,13 @@
 	{
 		"$type": "CommonCommand",
 		"Order": 34,
-		"Verb": "test",
+		"Verb": "pm2-service-install-batch",
 		"PostVerb": null,
 		"Destination": null,
 		"CommandOption": null,
 		"UseForBatchScript": true,
 		"UseRelativeScriptPath": true,
-		"IsSkip" : false
+		"IsSkip": false
 	},
 	{
 		"$type": "CommonCommand",
@@ -337,6 +337,17 @@
 		"CommandOption": "-f",
 		"UseForBatchScript": false,
 		"UseRelativeScriptPath": false,
-		"IsSkip" : false
+		"IsSkip": false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 37,
+		"Verb": "regedit",
+		"PostVerb": "/s",
+		"Destination": "\"C:\\fixel_erp\\golf_erp_client_monitor\\erp-monitor.reg\"",
+		"CommandOption": null,
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip": false
 	}
 ]

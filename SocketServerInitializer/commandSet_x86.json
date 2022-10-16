@@ -1,0 +1,353 @@
+[
+	{
+		"$type": "DirectoryCommand",
+		"Order": 1,
+		"Destination": "C:\\etc\\.pm2",
+		"CommandType": "Delete",
+		"ExceptionProcessName" : "node",
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 2,
+		"Destination": "C:\\etc\\.pm2",
+		"CommandType": "Create",
+		"ExceptionProcessName" : "node",
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 3,
+		"Destination": "C:\\Program Files\\nodejs",
+		"CommandType": "Delete",
+		"ExceptionProcessName": "node",
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 4,
+		"Destination": "C:\\Program Files\\nodejs",
+		"CommandType": "Create",
+		"ExceptionProcessName" : "node",
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "ZipFileCommand",
+		"Order": 5,
+		"ZipCommandType": "Extract",
+		"Destination": "node-v8.17.0-win-x86.zip",
+		"ExtractionPath": "C:\\Program Files\\nodejs",
+		"UseRelativeDestination" : true,
+		"UseRelativeExtractionPath" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 6,
+		"Destination": "C:\\Program Files\\python-3.7.9-embed-win32",
+		"CommandType": "Delete",
+		"ExceptionProcessName": "python",
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 7,
+		"Destination": "C:\\Program Files\\python-3.7.9-embed-win32",
+		"CommandType": "Create",
+		"ExceptionProcessName": "python",
+		"UseRelativeDestination": false,
+		"IsSkip": false
+	},
+	{
+		"$type": "ZipFileCommand",
+		"Order": 8,
+		"ZipCommandType": "Extract",
+		"Destination": "python-3.7.9-embed-win32.zip",
+		"ExtractionPath": "C:\\Program Files\\python-3.7.9-embed-win32",
+		"UseRelativeDestination": true,
+		"UseRelativeExtractionPath": false,
+		"IsSkip": false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 9,
+		"Destination": "C:\\fixel_erp\\socket_server",
+		"CommandType": "Delete",
+		"ExceptionProcessName": null,
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 10,
+		"Destination": "C:\\fixel_erp\\socket_server",
+		"CommandType": "Create",
+		"ExceptionProcessName" : null,
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "ZipFileCommand",
+		"Order": 11,
+		"ZipCommandType": "Extract",
+		"Destination": "golf_erp_pos_serialcomm_socket_server.zip",
+		"ExtractionPath": "C:\\fixel_erp\\socket_server",
+		"UseRelativeDestination" : true,
+		"UseRelativeExtractionPath" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 12,
+		"Destination": "C:\\fixel_erp\\socket_server\\node_modules",
+		"CommandType": "Delete",
+		"ExceptionProcessName": null,
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 13,
+		"Destination": "C:\\fixel_erp\\golf_erp_client_monitor",
+		"CommandType": "Delete",
+		"ExceptionProcessName": null,
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "DirectoryCommand",
+		"Order": 14,
+		"Destination": "C:\\fixel_erp\\golf_erp_client_monitor",
+		"CommandType": "Create",
+		"ExceptionProcessName" : null,
+		"UseRelativeDestination" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "ZipFileCommand",
+		"Order": 15,
+		"ZipCommandType": "Extract",
+		"Destination": "golf_erp_client_monitor.zip",
+		"ExtractionPath": "C:\\fixel_erp\\golf_erp_client_monitor",
+		"UseRelativeDestination" : true,
+		"UseRelativeExtractionPath" : false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CreateMachineEnvVariableCommand",
+		"Order": 16,
+		"PathName": "PATH",
+		"Destination": "C:\\Program Files\\nodejs",
+		"IsSkip" : false
+	},
+	{
+		"$type": "CreateMachineEnvVariableCommand",
+		"Order": 17,
+		"PathName": "PATH",
+		"Destination": "C:\\Program Files\\python-3.7.9-embed-win32",
+		"IsSkip" : false
+	},
+	{
+		"$type": "CreateMachineEnvVariableCommand",
+		"Order": 18,
+		"PathName": "PM2_HOME",
+		"Destination": "C:\\etc\\.pm2",
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 19,
+		"Verb": "sc",
+		"PostVerb": "delete",
+		"Destination": "fixelserialportcommsocketserver.exe",
+		"CommandOption": null,
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CreateSessionEnvVariableCommand",
+		"Order": 20,
+		"Verb": "SET",
+		"PathName": "PATH",
+		"Destination": "C:\\Program Files\\nodejs",
+		"IsSkip" : false
+	},
+	{
+		"$type": "CreateSessionEnvVariableCommand",
+		"Order": 21,
+		"Verb": "SET",
+		"PathName": "PATH",
+		"Destination": "C:\\Program Files\\python-3.7.9-embed-win32",
+		"IsSkip" : false
+	},
+	{
+		"$type": "CreateSessionEnvVariableCommand",
+		"Order": 22,
+		"Verb": "SET",
+		"PathName": "PM2_HOME",
+		"Destination": "C:\\etc\\.pm2",
+		"IsSkip" : false
+	},
+	{
+		"$type": "CreateSessionEnvVariableCommand",
+		"Order": 23,
+		"Verb": "SET",
+		"PathName": "PM2_SERVICE_PM2_DIR",
+		"Destination": "C:\\Program Files\\nodejs\\node_modules\\pm2\\index.js",
+		"IsSkip" : false
+	},
+	{
+		"$type": "CreateSessionEnvVariableCommand",
+		"Order": 24,
+		"Verb": "SET",
+		"PathName": "SET_PM2_SERVICE_PM2_DIR",
+		"Destination": "true",
+		"IsSkip" : false
+	},
+	{
+		"$type": "CreateSessionEnvVariableCommand",
+		"Order": 25,
+		"Verb": "SET",
+		"PathName": "SET_PM2_SERVICE_SCRIPTS",
+		"Destination": "true",
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 26,
+		"Verb": "npm",
+		"PostVerb": "config set prefix",
+		"Destination": "\"C:\\Program Files\\nodejs\"",
+		"CommandOption": null,
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 27,
+		"Verb": "npm",
+		"PostVerb": "install",
+		"Destination": "pm2@5.1.2",
+		"CommandOption": "-g",
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 28,
+		"Verb": "npm",
+		"PostVerb": "install",
+		"Destination": "pm2-windows-service",
+		"CommandOption": "-g",
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 29,
+		"Verb": "npm",
+		"PostVerb": "install",
+		"Destination": "json",
+		"CommandOption": "-g",
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 30,
+		"Verb": "cd",
+		"PostVerb": "C:\\Program Files\\nodejs\\node_modules\\pm2-windows-service",
+		"Destination": null,
+		"CommandOption": null,
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 31,
+		"Verb": "json",
+		"PostVerb": "-I -f",
+		"Destination": "package.json -e",
+		"CommandOption": "\"this.dependencies.inquirer='7.0.1'\"",
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 32,
+		"Verb": "cd",
+		"PostVerb": "C:\\fixel_erp\\socket_server",
+		"Destination": null,
+		"CommandOption": null,
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 33,
+		"Verb": "npm",
+		"PostVerb": "install",
+		"Destination": null,
+		"CommandOption": null,
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 34,
+		"Verb": "pm2-service-install-batch",
+		"PostVerb": null,
+		"Destination": null,
+		"CommandOption": null,
+		"UseForBatchScript": true,
+		"UseRelativeScriptPath": true,
+		"IsSkip": false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 35,
+		"Verb": "pm2",
+		"PostVerb": "start",
+		"Destination": "SerialPortServerSocketIo.js",
+		"CommandOption": null,
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip" : false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 36,
+		"Verb": "pm2",
+		"PostVerb": "save",
+		"Destination": null,
+		"CommandOption": "-f",
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip": false
+	},
+	{
+		"$type": "CommonCommand",
+		"Order": 37,
+		"Verb": "regedit",
+		"PostVerb": "/s",
+		"Destination": "\"C:\\fixel_erp\\golf_erp_client_monitor\\erp-monitor.reg\"",
+		"CommandOption": null,
+		"UseForBatchScript": false,
+		"UseRelativeScriptPath": false,
+		"IsSkip": false
+	}
+]

@@ -15,7 +15,7 @@ namespace SocketServerInitializer.Controller
         public bool EndOfCommand { get => endOfCommand; }
         public int CommandListCount { get => CommandList.Count; }
         public string StrCmdCommands { get => CmdCommands.ToString(); }
-        public Dictionary<string, string> ProcessInfo = new Dictionary<string, string>();
+        public List<KeyValuePair<string, string>> ProcessInfo = new List<KeyValuePair<string, string>>();
 
         private bool endOfCommand = false;
         private List<CommandBase> CommandList = new List<CommandBase>();
@@ -83,7 +83,7 @@ namespace SocketServerInitializer.Controller
                 {
                     string pathKey = ((CreateSessionEnvVariableCommand)command).PathName;
                     string pathValue = ((CreateSessionEnvVariableCommand)command).Destination;
-                    this.ProcessInfo[pathKey] = pathValue;
+                    this.ProcessInfo.Add(new KeyValuePair<string, string>(pathKey, pathValue));
                     return true;
                 }
                 ConcatCommand(((CmdController)controller).GetFullCommand(command));
@@ -91,7 +91,10 @@ namespace SocketServerInitializer.Controller
             }
             else
             {
-                return ((GeneralController)controller).Execute(command);
+                Console.WriteLine($"[Running] General Command (CommandNo {command.Order})");
+                bool result = ((GeneralController)controller).Execute(command);
+                Console.WriteLine($"[Done] Result - ({(result ? "SUCCESS" : "FAIL")})");
+                return result;
             }
         }
 
