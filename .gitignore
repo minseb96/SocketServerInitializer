@@ -421,3 +421,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,windowsSocketServerInitializer/Resources/golf_erp_client_monitor.zip
+SocketServerInitializer/Resources/golf_erp_pos_serialcomm_socket_server.zip
